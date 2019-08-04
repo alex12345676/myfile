@@ -26,7 +26,7 @@ int strlen(char *s)
 int strtoint (char *s)
 {
     int sign=1,res=0;
-//printf("\n%s\n",s);
+//printf("\n%s\n",s); отладочный
     if ((s[0] >= '0') && (s[0]<='9')||(s[0]=='-'))
    {
 		if(s[0]=='-')
@@ -49,7 +49,7 @@ int strtoint (char *s)
 			}
 		
 	}
-//printf("%i\n",res);
+//printf("%i\n",res); отладочный
 	return res*sign;
 }
 
@@ -77,7 +77,7 @@ int main()
     {
         height = get_int("Height: ");
         width = height + 1;
-//printf("\n%i\n",height);
+//printf("\n%i\n",height); отладочный
     }
     while (height < 0 || height > 23);
 
