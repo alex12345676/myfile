@@ -23,7 +23,7 @@ float chartofloat(char *s)
     }
     for(int i=0; i<strlen(s);i++)
     {
-      if((ten ==10)&&(s[i]!=','))
+      if((ten ==10)&&(s[i]!=',')&&(s[i]>=0)&&(s[i]<=9))
       {
         res*=ten;
         res+=(float)(s[i]-'0');
@@ -31,18 +31,20 @@ float chartofloat(char *s)
       else if(s[i]==',')
       {
         ten=0,1;
-        contunue;
+        
       }
-      else
+      else if((s[i]>=0)&&(s[i]<=9))
       {
         
         res+=(s[i]-'0')*ten;
         ten/=10;
       }
+      else
+        return res*sign;
     }
     
   } 
-  return res;
+  return res*sign;
 }
 float get_float(char *message)
 {
@@ -53,5 +55,6 @@ float get_float(char *message)
 
 int main()
 {
-  
+  float f=get_float("введите остаток сдачи ");
+  printf("\n%f\n",f);
 }
