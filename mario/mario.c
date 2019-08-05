@@ -11,7 +11,6 @@
  * ··### l2 2s 3h
  * ·#### l3 1s 4h
  * ##### l4 0s 5h
-
  */
 char input[255];
 int strlen(char *s)
