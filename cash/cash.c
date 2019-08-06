@@ -85,6 +85,10 @@ int main()
   printf(" 5000-: %i shtuk, 1000-: %i shtuk, 500-: %i shtuk\n 200-: %i shtuk, 100-: %i shtuk, 50-: %i shtuk\n",
         fif_tause_rub,tause_rub,patsot_rub,dvest_rub,tu_rub,fiften_rub);
   printf("                    monete\n");
+<<<<<<< HEAD
   printf(" 10rub - %i shtuk, 5rub - %i shtuk, 2rub - %i shtuk, 1rub - %i shtuk\n",ten_rub,fif_rub,tu_rub,rub);
+=======
+  printf(" 10rub - %i, 5rub - %i, 2rub - %i, 1rub - %i\n",ten_rub,fif_rub,tu_rub,rub);
+>>>>>>> 82e52c32f283d4bd3f8a6eb8aa59fd0156342e16
   printf("50 kopeek: %i shtuk; 10 kopeek: %i shtuk; 1 kopeek: %i shtuk\n",fiften_cent,ten_cent,cent) ;
 }
