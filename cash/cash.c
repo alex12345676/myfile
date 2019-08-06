@@ -67,7 +67,7 @@ int main()
   int ten_cent,fiften_cent,all_cents,cent,rub,fif_rub,ten_rub,tause_rub,fif_tause_rub,fiften_rub,sto_rub,dvest_rub,all_rub,patsot_rub,tu_rub;
   all_cents=(int)round(f*100);
   all_rub=all_cent/100;
-  fif_tause_ru=all_rub/5000;
+  fif_tause_rub=all_rub/5000;
   tause_rub=all_rub%5000/1000;
   patsot_rub=all_rub%5000%1000/500;
   dvest_rub=all_rub%5000%1000%500/200;
@@ -82,6 +82,9 @@ int main()
   ten_cent=all_cents%50/10;
   cent=all_cents%50%10;
   printf("                    bumazhnie\n");
-  printf(" 5000-: %i shtuk, 1000-: $i shtuk, 500-: %i shtuk\n 200-: %i shtuk, 100-: %i shtuk, 50-: %i shtuk\n",)
+  printf(" 5000-: %i shtuk, 1000-: $i shtuk, 500-: %i shtuk\n 200-: %i shtuk, 100-: %i shtuk, 50-: %i shtuk\n",\
+        fif_tause_rub,tause_rub,patsot_rub,dvest_rub,to_rub,fiften_rub);
+  printf("                    monete\n");
+  printf(" 10rub - %i, 5rub - %i, 2rub - %i, 1rub - %i\n",ten_rub,fif_rub,tu_rub,rub);
   printf("50 kopeek: %i shtuk; 10 kopeek: %i shtuk; 1 kopeek: %i shtuk\n",fiften_cent,ten_cent,cent) ;
 }
