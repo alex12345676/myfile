@@ -64,8 +64,20 @@ float get_float(char *message)
 int main()
 {
   float f=get_float("input float:  ");
-  int ten_cent,fiften_cent,all_cents,cent;
+  int ten_cent,fiften_cent,all_cents,cent,rub,fif_rub,ten_rub,tause_rub,fif_tause_rub,fiften_rub,sto_rub,dvest_rub,all_rub,patsot_rub,tu_rub;
   all_cents=(int)round(f*100);
+  all_rub=all_cent/100;
+  fif_tause_ru=all_rub/5000;
+  tause_rub=all_rub%5000/1000;
+  patsot_rub=all_rub%5000%1000/500;
+  dvest_rub=all_rub%5000%1000%500/200;
+  sto_rub=all_rub%5000%1000%500%200/100;
+  fiften_rub=all_rub%5000%1000%500%200%100/50;
+  ten_rub=all_rub%5000%1000%500%200%100%50/10;
+  fif_rub=all_rub%5000%1000%500%200%100%50%10/5;
+  tu_rub=all_rub%%5000%1000%500%200%100%50%10%5/2;
+  rub=all_rub%%5000%1000%500%200%100%50%10%5%2;
+  all_cent-=(all_rub*100);
   fiften_cent=all_cents/50;
   ten_cent=all_cents%50/10;
   cent=all_cents%50%10;
