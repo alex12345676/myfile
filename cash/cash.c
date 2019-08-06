@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-char [256];
+char Input[256];
 int strlen(char *s)
 {
   int res=0;
