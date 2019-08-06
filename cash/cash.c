@@ -81,5 +81,7 @@ int main()
   fiften_cent=all_cents/50;
   ten_cent=all_cents%50/10;
   cent=all_cents%50%10;
+  printf("                    bumazhnie\n");
+  printf(" 5000-: %i shtuk, 1000-: $i shtuk, 500-: %i shtuk\n 200-: %i shtuk, 100-: %i shtuk, 50-: %i shtuk\n",)
   printf("50 kopeek: %i shtuk; 10 kopeek: %i shtuk; 1 kopeek: %i shtuk\n",fiften_cent,ten_cent,cent) ;
 }
