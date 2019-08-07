@@ -63,7 +63,7 @@ float get_float(char *message)
 
 int main()
 {
-  float f=get_float("input float:  ");
+  float f=get_float("vvedite sdacha:  ");
   int ten_cent,fiften_cent,all_cents,cent,rub,fif_rub,ten_rub,tause_rub,fif_tause_rub,fiften_rub,sto_rub,dvest_rub,all_rub,patsot_rub,tu_rub;
   all_cents=(int)round(f*100);
   all_rub=all_cents/100;
