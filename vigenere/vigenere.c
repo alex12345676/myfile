@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #define BUFFER_SIZE 256
+char *ciphertext( char *s, char *key);
 
 int main( int argc, char *argv[] )
 {
@@ -21,6 +22,98 @@ int main( int argc, char *argv[] )
         }
 
     }
+    printf( "plaintext:  "  );
     fgets( input, BUFFER_SIZE, stdin );
+    printf( "ciphertext: %s\n", ciphertext( input, argv[1] ) );
 
+}
+char *ciphertext( char *s, char *key)
+{
+    for( int i = 0, len = strlen( s ), len2 = strlen( key ), j = 0; i < len; i++, j++)
+    {
+        if( isalpha( s[ i ] ) )
+        {
+            if( ( len > len2 ) && ( j < len2))
+            {
+                if( isupper( s[ i ] ) )
+                {
+                    if( isupper(key[ j ] ))
+                    {
+                        s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'A';
+                    }
+                    else
+                    {
+                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'A';
+                    }
+                }
+                else
+                {
+                    if( isupper(key[ j ] ))
+                    {
+                         s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'a';
+                    }
+                    else
+                    {
+                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'a';
+                    }
+                }
+            }
+            else if( j == len2 )
+            {
+                j = 0;
+                if( isupper( s[ i ] ) )
+                {
+                    if( isupper(key[ j ] ))
+                    {
+                        s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'A';
+                    }
+                    else
+                    {
+                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'A';
+                    }
+                }
+                else
+                {
+                    if( isupper(key[ j ] ))
+                    {
+                         s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'a';
+                    }
+                    else
+                    {
+                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'a';
+                    }
+                }
+            }
+            else
+            {
+                if( isupper( s[ i ] ) )
+                {
+                    if( isupper(key[ j ] ))
+                    {
+                        s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'A';
+                    }
+                    else
+                    {
+                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'A';
+                    }
+                }
+                else
+                {
+                    if( isupper(key[ j ] ))
+                    {
+                         s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'a';
+                    }
+                    else
+                    {
+                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'a';
+                    }
+                }
+            }
+        }
+        else
+        {
+            j--;
+        }
+    }
+    return s;
 }
