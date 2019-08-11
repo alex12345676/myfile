@@ -8,14 +8,14 @@ char *ciphertext( char *s, char *key);
 int main( int argc, char *argv[] )
 {
     char input[BUFFER_SIZE];
-    if( argc != 2)
+    if( argc != 2)//проверка на количество аргументов
     {
         PRINT_USAGE
         return 1;
     }
     for( int i = 0, len = strlen( argv[1] ); i < len; i++)
     {
-        if( !isalpha( argv[1][i] ) )
+        if( !isalpha( argv[1][i] ) ) //проверка на буквы ключа
         {
             PRINT_USAGE
             return 2;
@@ -27,7 +27,7 @@ int main( int argc, char *argv[] )
     printf( "ciphertext: %s\n", ciphertext( input, argv[1] ) );
 
 }
-char *ciphertext( char *s, char *key)
+char *ciphertext( char *s, char *key) //зашифровка
 {
     for( int i = 0, len = strlen( s ), len2 = strlen( key ), j = 0; i < len; i++, j++)
     {
