@@ -3,7 +3,9 @@
 #include <string.h>
 #include <ctype.h>
 #define BUFFER_SIZE 256
+
 char *ciphertext( char *s, char *key);
+char cipherchar( char a, char k);
 
 int main( int argc, char *argv[] )
 {
@@ -29,85 +31,22 @@ int main( int argc, char *argv[] )
 }
 char *ciphertext( char *s, char *key) //зашифровка
 {
-    for( int i = 0, len = strlen( s ), len2 = strlen( key ), j = 0; i < len; i++, j++)
+    for( int i = 0, len = strlen( s ), len2 = strlen( key ), j = 0; i < len; i++, j++) // по длине текста
     {
-        if( isalpha( s[ i ] ) )
+        if( isalpha( s[ i ] ) ) // если буква на шифрование
         {
-            if( ( len > len2 ) && ( j < len2))
+            if( ( len > len2 ) && ( j < len2)) // если длина ключевого слова меньше длины текста
             {
-                if( isupper( s[ i ] ) )
-                {
-                    if( isupper(key[ j ] ))
-                    {
-                        s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'A';
-                    }
-                    else
-                    {
-                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'A';
-                    }
-                }
-                else
-                {
-                    if( isupper(key[ j ] ))
-                    {
-                         s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'a';
-                    }
-                    else
-                    {
-                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'a';
-                    }
-                }
+               s[ i ]  = cipherchar(s[ i ], key[ j ] );
             }
-            else if( j == len2 )
+            else if( j == len2 ) // когда последний символ ключевого слова
             {
                 j = 0;
-                if( isupper( s[ i ] ) )
-                {
-                    if( isupper(key[ j ] ))
-                    {
-                        s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'A';
-                    }
-                    else
-                    {
-                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'A';
-                    }
-                }
-                else
-                {
-                    if( isupper(key[ j ] ))
-                    {
-                         s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'a';
-                    }
-                    else
-                    {
-                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'a';
-                    }
-                }
+                s[ i ]  = cipherchar(s[ i ], key[ j ] );
             }
             else
             {
-                if( isupper( s[ i ] ) )
-                {
-                    if( isupper(key[ j ] ))
-                    {
-                        s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'A';
-                    }
-                    else
-                    {
-                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'A';
-                    }
-                }
-                else
-                {
-                    if( isupper(key[ j ] ))
-                    {
-                         s[i] = ( s[ i ] + key[ j ] - 'A')%26 + 'a';
-                    }
-                    else
-                    {
-                        s[ i ] = ( s[ i ] + key[ j ] - 'a')%26 + 'a';
-                    }
-                }
+                 s[ i ]  = cipherchar(s[ i ], key[ j ] );
             }
         }
         else
@@ -116,4 +55,33 @@ char *ciphertext( char *s, char *key) //зашифровка
         }
     }
     return s;
+}
+
+char cipherchar( char a, char k) // зашифровка символа
+{
+ //   printf( " до зашифровки %c , %c \n", a, k);
+     if( isupper( a ) ) // если большая буква
+                {
+                    if( isupper( k )) // если большая буква ключа
+                    {
+                        a = ( a - 'A' + k - 'A')%26 + 'A' ;
+                    }
+                    else
+                    {
+                        a = ( a -'A' + k - 'a')%26 +  'A' ;
+                    }
+                }
+                else
+                {
+                    if( isupper(k ))// если большая буква ключевого слова
+                    {
+                         a = ( a -'a' + k - 'A')%26 + 'a';
+                    }
+                    else
+                    {
+                        a = ( a - 'a' + k - 'a')%26 + 'a';
+                    }
+                }
+                 //printf( " зашифровки %c , %c \n", a, k);
+    return a;
 }
