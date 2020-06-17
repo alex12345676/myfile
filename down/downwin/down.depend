@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1563969802 source:f:\down\down\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"strings.c"
+	"files.c"
+	"loadm3u8.c"
+	"down_vid.c"
+
+1563959585 f:\down\down\strings.c
+
+1563970553 f:\down\down\files.c
+
+1563970310 f:\down\down\loadm3u8.c
+
+1563970676 f:\down\down\down_vid.c
+
