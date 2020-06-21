@@ -4,13 +4,30 @@ void copy_file(char* name1,char* name2)
   //   STARTUPINFO si;
   // PROCESS_INFORMATION pi;
   // GetStartupInfo(&si);
-   char* arg1=str_and_str("type ",name1);
-  char* arg2= str_and_str(arg1,">>");
-  free(arg1);
-  arg1= str_and_str(arg2,name2);
-
-
-   free(arg2);
+   //char* arg1=str_and_str("type ",name1);
+  //char* arg2= str_and_str(arg1,">>");
+  	char b[1];
+  //free(arg1);
+ // arg1= str_and_str(arg2,name2);
+	FILE * f1, f2;
+	if (!(f1=fopen(name1, "r")))
+	{
+		printf("No open file %s /n", name1);
+		return;
+	}
+	if (!(f2=fopen(name2, "w")))
+	{
+		printf("No open file %s for write/n", name2);
+		return;
+	}
+	while (!feof(f1)
+	{
+		fread(b, 1, 1, f1);
+		fwrite(b, 1, 1, f2);
+	}
+	fclose(f1);
+	fclose(f2);
+	  // free(arg2);
 //   arg2=str_and_str(arg3,name2);
 //   free(arg3);
 //   printf(arg2);
@@ -23,10 +40,10 @@ void copy_file(char* name1,char* name2)
 //}
 //else
 //    printf("no proser\n");
-if(!system(arg1))
-free(arg1);
-else
-    printf("No type file in out\n");
+//if(!system(arg1))
+//free(arg1);
+//e/lse
+  //  printf("No type file in out\n");
 }
 
 int load_vid(char* url)
