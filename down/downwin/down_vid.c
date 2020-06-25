@@ -8,7 +8,7 @@ void down_vid(FILE* m3u8,char* url, char* out_file)
         char ch='#';
         char* name_seg;
 	count=strlen(url);
-        for( count; count>0; count--)
+        for( ; count>0; count--)
                         if(url[count]=='/')
                         break;
                         else
@@ -33,8 +33,11 @@ void down_vid(FILE* m3u8,char* url, char* out_file)
                        printf("load url seg\n");
                       if( load_vid(lin))
 {
-                        copy_file("tmp2",out_file);
-
+                        if (!copy_file("tmp2",out_file))
+                        {
+                            fclose(m3u8);
+                            exit(1);
+                        }
                       // while (feof(vidseg)==0)
                        //{
                       //     c=getc(vidseg);

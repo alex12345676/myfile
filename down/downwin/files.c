@@ -1,5 +1,5 @@
 
-void copy_file(char* name1,char* name2)
+int copy_file(char* name1,char* name2)
 {
   //   STARTUPINFO si;
   // PROCESS_INFORMATION pi;
@@ -9,25 +9,31 @@ void copy_file(char* name1,char* name2)
   	char b[1];
   //free(arg1);
  // arg1= str_and_str(arg2,name2);
-	FILE * f1, f2;
-	if (!(f1=fopen(name1, "r")))
+	FILE* f1;
+	FILE* f2;
+	if (!(f1=fopen(name1, "rb")))
 	{
-		printf("No open file %s /n", name1);
-		return;
+		printf("No open file %s \n", name1);
+		return 0;
 	}
-	if (!(f2=fopen(name2, "w")))
+	if (!(f2=fopen(name2, "ab")))
 	{
-		printf("No open file %s for write/n", name2);
-		return;
+	    fclose(f1);
+		printf("No open file %s for write\n", name2);
+		return 0;
 	}
-	while (!feof(f1)
+	//int bb = 0;
+	while (fread(b, 1, 1, f1)== 1)
 	{
-		fread(b, 1, 1, f1);
+		//fread(b, 1, 1, f1);
 		fwrite(b, 1, 1, f2);
+		fflush(f2);
+	//	++bb;
 	}
+	//printf("read %i \n", bb);
 	fclose(f1);
 	fclose(f2);
-	  // free(arg2);
+/*	  // free(arg2);
 //   arg2=str_and_str(arg3,name2);
 //   free(arg3);
 //   printf(arg2);
@@ -43,7 +49,8 @@ void copy_file(char* name1,char* name2)
 //if(!system(arg1))
 //free(arg1);
 //e/lse
-  //  printf("No type file in out\n");
+  //  printf("No type file in out\n");*/
+  return 1;
 }
 
 int load_vid(char* url)
