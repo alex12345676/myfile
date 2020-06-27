@@ -6,7 +6,7 @@ FILE* load_m3u8(char* url)
  //  GetStartupInfo(&si);
   // char* arg1="f:\\wget\\wget.exe";
 	FILE *f ;
-   	char* arg2= str_and_str("wget -c ", url);
+   	char* arg2= str_and_str("wget -c -w 1 -T 1", url);
    	char* arg3= str_and_str(arg2,"  -o wget.log -O ");
 	char nam[] = "tmp\0"; 
    	free(arg2);

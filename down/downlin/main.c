@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 
 
  		}
-    	char *arg2=str_and_str("wget -c ", url); // treb free указатель на сумарную строку
+    	char *arg2=str_and_str("wget -c -w 1 -T 1", url); // treb free указатель на сумарную строку
     	char *arg3 = str_and_str(arg2, " -O ");
     	free(arg2);
     	arg2 = str_and_str(arg3, o_name);

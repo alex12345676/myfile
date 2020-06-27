@@ -61,7 +61,7 @@ int load_vid(char* url)
  //  char* arg1="f:\\wget\\wget.exe";
 	FILE *f ;
 	char nam[] = "tmp0";
-   	char* arg2 = str_and_str("wget -c ", url);
+   	char* arg2 = str_and_str("wget -c -w 1 -T 1 ", url);
    	char* arg3 = str_and_str(arg2,"  -o wget.log -O ");
    	free(arg2);
    	arg2 = str_and_str(arg3, nam);
